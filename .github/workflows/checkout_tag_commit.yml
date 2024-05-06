@@ -1,0 +1,16 @@
+name: Check out tag/commit
+run-name: Release a new version ${{ github.event.release.tag_name }}
+
+on:
+  release:
+    types: [ created ]
+
+jobs:
+  build-and-push:
+    name: Build and push Docker images
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.release.target_commitish || github.event.release.tag_name }}
+          fetch-depth: 0
