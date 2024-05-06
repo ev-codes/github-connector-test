@@ -10,6 +10,11 @@ jobs:
     name: Build and push Docker images
     runs-on: ubuntu-latest
     steps:
+      - name: print github release vars
+        env: 
+          GITHUB_RELEASE_OBJ: ${{ toJson(github.event.release) }}
+        run: echo "$GITHUB_RELEASE_OBJ"
+    
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.release.tag_name || github.event.release.target_commitish }}
