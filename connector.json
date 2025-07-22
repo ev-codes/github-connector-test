@@ -1,8 +1,8 @@
 {
   "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
-  "name": "New connector template",
-  "id": "b78819a6-929d-4ed7-b07b-0db4188cc2ec",
-  "version": 1753172887114,
+  "name": "connector",
+  "id": "26651f18-4768-4cce-80e9-4b3465dbdbb9",
+  "version": 1753182689056,
   "description": "",
   "category": {
     "id": "connectors",
