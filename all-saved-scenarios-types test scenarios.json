@@ -2,7 +2,7 @@
   "processId": "template-error-handling-1mros22",
   "testCases": [
     {
-      "name": "My first scenario",
+      "name": "My first scenario00000",
       "instructions": [
         {
           "type": "create-process-instance",
