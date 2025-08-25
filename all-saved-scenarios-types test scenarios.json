@@ -1,0 +1,263 @@
+{
+  "processId": "template-error-handling-1mros22",
+  "testCases": [
+    {
+      "name": "My first scenario",
+      "instructions": [
+        {
+          "type": "create-process-instance",
+          "processDefinitionId": "template-error-handling-1mros22",
+          "variables": "{}"
+        },
+        {
+          "type": "complete-user-task",
+          "elementId": "Activity_049n26m",
+          "variables": "{}"
+        },
+        {
+          "type": "publish-message",
+          "elementId": "Event_0kvoxuk",
+          "messageName": "Message_1pvtm4u",
+          "correlationKey": "123"
+        },
+        {
+          "type": "throw-job-error",
+          "elementId": "Activity_1odz60v",
+          "errorCode": "",
+          "jobType": "service-job-type"
+        }
+      ],
+      "metadata": {
+        "processInstanceId": "2251799814344117",
+        "coveredFlowNodes": [
+          {
+            "flowNodeId": "Event_1ppmjpi",
+            "elementType": "bpmn:StartEvent"
+          },
+          {
+            "flowNodeId": "Activity_049n26m",
+            "elementType": "bpmn:UserTask"
+          },
+          {
+            "flowNodeId": "Event_0kvoxuk",
+            "elementType": "bpmn:IntermediateCatchEvent"
+          },
+          {
+            "flowNodeId": "Activity_1odz60v",
+            "elementType": "bpmn:ServiceTask"
+          },
+          {
+            "flowNodeId": "Event_0ykp52a",
+            "elementType": "bpmn:BoundaryEvent"
+          },
+          {
+            "flowNodeId": "Event_0acvtrn",
+            "elementType": "bpmn:EndEvent"
+          }
+        ],
+        "coveredSequenceFlows": [
+          "Flow_052ujnx",
+          "Flow_0865nf8",
+          "Flow_1pw5vvv",
+          "Flow_1xwyoaq"
+        ]
+      }
+    },
+    {
+      "name": "Message start and complete service task",
+      "instructions": [
+        {
+          "type": "create-process-instance-by-message",
+          "processDefinitionId": "template-error-handling-1mros22",
+          "messageName": ""
+        },
+        {
+          "type": "complete-user-task",
+          "elementId": "Activity_049n26m",
+          "variables": "{}"
+        },
+        {
+          "type": "publish-message",
+          "elementId": "Event_0kvoxuk",
+          "messageName": "Message_1pvtm4u",
+          "correlationKey": "123"
+        },
+        {
+          "type": "complete-job",
+          "jobType": "serviceTask",
+          "elementId": "Activity_1odz60v"
+        },
+        {
+          "type": "broadcast-signal",
+          "elementId": "Event_0b1jn16",
+          "signalName": "Signal_338fbj0"
+        }
+      ],
+      "metadata": {
+        "processInstanceId": "2251799814345545",
+        "coveredFlowNodes": [
+          {
+            "flowNodeId": "Event_1vhp0p7",
+            "elementType": "bpmn:StartEvent"
+          },
+          {
+            "flowNodeId": "Activity_049n26m",
+            "elementType": "bpmn:UserTask"
+          },
+          {
+            "flowNodeId": "Event_0kvoxuk",
+            "elementType": "bpmn:IntermediateCatchEvent"
+          },
+          {
+            "flowNodeId": "Activity_1odz60v",
+            "elementType": "bpmn:ServiceTask"
+          },
+          {
+            "flowNodeId": "Event_0b1jn16",
+            "elementType": "bpmn:IntermediateCatchEvent"
+          },
+          {
+            "flowNodeId": "Event_0slx6om",
+            "elementType": "bpmn:EndEvent"
+          }
+        ],
+        "coveredSequenceFlows": [
+          "Flow_0865nf8",
+          "Flow_0ckc86k",
+          "Flow_1dfm73g",
+          "Flow_1orryt8",
+          "Flow_1xwyoaq"
+        ]
+      }
+    },
+    {
+      "name": "Signal with throw error",
+      "instructions": [
+        {
+          "type": "create-process-instance-by-signal",
+          "processDefinitionId": "template-error-handling-1mros22",
+          "signalName": ""
+        },
+        {
+          "type": "complete-user-task",
+          "elementId": "Activity_049n26m",
+          "variables": "{\n  \"employeeData\": {}\n}"
+        },
+        {
+          "type": "publish-message",
+          "elementId": "Event_0kvoxuk",
+          "messageName": "Message_1pvtm4u",
+          "correlationKey": "123"
+        },
+        {
+          "type": "throw-job-error",
+          "elementId": "Activity_1odz60v",
+          "errorCode": "",
+          "jobType": "service-job-type"
+        }
+      ],
+      "metadata": {
+        "processInstanceId": "4503599628034863",
+        "coveredFlowNodes": [
+          {
+            "flowNodeId": "Event_1hina6r",
+            "elementType": "bpmn:StartEvent"
+          },
+          {
+            "flowNodeId": "Activity_049n26m",
+            "elementType": "bpmn:UserTask"
+          },
+          {
+            "flowNodeId": "Event_0kvoxuk",
+            "elementType": "bpmn:IntermediateCatchEvent"
+          },
+          {
+            "flowNodeId": "Activity_1odz60v",
+            "elementType": "bpmn:ServiceTask"
+          },
+          {
+            "flowNodeId": "Event_0ykp52a",
+            "elementType": "bpmn:BoundaryEvent"
+          },
+          {
+            "flowNodeId": "Event_0acvtrn",
+            "elementType": "bpmn:EndEvent"
+          }
+        ],
+        "coveredSequenceFlows": [
+          "Flow_0865nf8",
+          "Flow_0wrle5k",
+          "Flow_1pw5vvv",
+          "Flow_1xwyoaq"
+        ]
+      }
+    },
+    {
+      "name": "Signal w vars and set vars and throw from action menu",
+      "instructions": [
+        {
+          "type": "create-process-instance-by-signal",
+          "processDefinitionId": "template-error-handling-1mros22",
+          "signalName": "",
+          "variables": "{\n  \"event1\": \"signal1\"\n}"
+        },
+        {
+          "type": "update-variables",
+          "variables": "{\"variable2\":\"2nd variable\"}"
+        },
+        {
+          "type": "complete-user-task",
+          "elementId": "Activity_049n26m",
+          "variables": "{}"
+        },
+        {
+          "type": "publish-message",
+          "elementId": "Event_0kvoxuk",
+          "messageName": "Message_1pvtm4u",
+          "correlationKey": "123"
+        },
+        {
+          "type": "throw-job-error",
+          "elementId": "Activity_1odz60v",
+          "errorCode": "",
+          "jobType": "service-job-type"
+        }
+      ],
+      "metadata": {
+        "processInstanceId": "6755399441722226",
+        "coveredFlowNodes": [
+          {
+            "flowNodeId": "Event_1hina6r",
+            "elementType": "bpmn:StartEvent"
+          },
+          {
+            "flowNodeId": "Activity_049n26m",
+            "elementType": "bpmn:UserTask"
+          },
+          {
+            "flowNodeId": "Event_0kvoxuk",
+            "elementType": "bpmn:IntermediateCatchEvent"
+          },
+          {
+            "flowNodeId": "Activity_1odz60v",
+            "elementType": "bpmn:ServiceTask"
+          },
+          {
+            "flowNodeId": "Event_0ykp52a",
+            "elementType": "bpmn:BoundaryEvent"
+          },
+          {
+            "flowNodeId": "Event_0acvtrn",
+            "elementType": "bpmn:EndEvent"
+          }
+        ],
+        "coveredSequenceFlows": [
+          "Flow_0865nf8",
+          "Flow_0wrle5k",
+          "Flow_1pw5vvv",
+          "Flow_1xwyoaq"
+        ]
+      }
+    }
+  ]
+}
